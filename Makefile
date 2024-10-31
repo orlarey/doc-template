@@ -1,7 +1,10 @@
-slides.pdf : slides.md examples/*.dsp
+document.pdf : document.md examples/*.dsp
 	make -C examples
-	pandoc --to=beamer --standalone --output=slides.pdf slides.md
+	pandoc document.md -o document.pdf --from markdown --template=eisvogel --listings
 
 clean:
-	rm -f slides.pdf
+	rm -f document.pdf
 	make -C examples clean
+
+
+
